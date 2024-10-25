@@ -7,11 +7,13 @@ import 'noticias_wordpress.dart';
 import 'acerca_de.dart';
 
 class PaginaInicio extends StatelessWidget {
+  const PaginaInicio({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tarea 6 (Couteau)'),
+        title: const Text('Tarea 6 (Couteau)'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
@@ -21,18 +23,18 @@ class PaginaInicio extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image.asset('assets/imagenes/caja_herramientas.png', width: 150),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Bienvenido a mi Aplicación:)',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black),
               ),
-              SizedBox(height: 20),
-              _crearBoton(context, 'Predecir Género', PrediccionGenero()),
-              _crearBoton(context, 'Predecir Edad', PrediccionEdad()),
-              _crearBoton(context, 'Universidades por País', Universidades()),
-              _crearBoton(context, 'Clima en RD', ClimaRD()),
-              _crearBoton(context, 'Noticias WordPress', NoticiasWordPress()),
-              _crearBoton(context, 'Sobre Mí', AcercaDe()),
+              const SizedBox(height: 20),
+              _crearBoton(context, 'Predecir Género', const PrediccionGenero()),
+              _crearBoton(context, 'Predecir Edad', const PrediccionEdad()),
+              _crearBoton(context, 'Universidades por País', const Universidades()),
+              _crearBoton(context, 'Clima en RD', const ClimaRD()),
+              _crearBoton(context, 'Noticias WordPress', const NoticiasWordPress()),
+              _crearBoton(context, 'Sobre Mí', const AcercaDe()),
             ],
           ),
         ),
@@ -50,13 +52,13 @@ class PaginaInicio extends StatelessWidget {
             MaterialPageRoute(builder: (context) => pagina),
           );
         },
-        child: Text(texto),
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.blueAccent,
           foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          textStyle: TextStyle(fontSize: 18),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+          textStyle: const TextStyle(fontSize: 18),
         ),
+        child: Text(texto),
       ),
     );
   }

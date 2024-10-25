@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:tarea_6/servicios/servicio_clima.dart';
 
 class ClimaRD extends StatefulWidget {
+  const ClimaRD({super.key});
+
   @override
   _ClimaRDState createState() => _ClimaRDState();
 }
@@ -26,7 +28,7 @@ class _ClimaRDState extends State<ClimaRD> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Clima en República Dominicana'),
+        title: const Text('Clima en República Dominicana'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
@@ -37,17 +39,17 @@ class _ClimaRDState extends State<ClimaRD> {
             children: [
               Text(
                 _clima.isNotEmpty ? _clima : 'Cargando clima...',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _obtenerClima,
-                child: Text('Actualizar Clima'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blueAccent, // Color de fondo
-                  foregroundColor: Colors.white, // Color del texto
+                  backgroundColor: Colors.blueAccent,
+                  foregroundColor: Colors.white,
                 ),
+                child: const Text('Actualizar Clima'),
               ),
             ],
           ),

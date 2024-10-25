@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class AcercaDe extends StatelessWidget {
+  const AcercaDe({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sobre Mí'),
+        title: const Text('Sobre Mí'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Colors.white, 
             borderRadius: BorderRadius.circular(15), 
@@ -19,11 +21,11 @@ class AcercaDe extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 2,
                 blurRadius: 7,
-                offset: Offset(0, 3), 
+                offset: const Offset(0, 3), 
               ),
             ],
           ),
-          child: Column(
+          child: const Column(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -7,7 +7,7 @@ void main() {
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: PaginaInicio(),
+    home: const PaginaInicio(),
   ));
 }
 

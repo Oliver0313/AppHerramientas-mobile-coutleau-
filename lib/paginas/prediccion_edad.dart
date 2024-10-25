@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class PrediccionEdad extends StatefulWidget {
+  const PrediccionEdad({super.key});
+
   @override
   _PrediccionEdadState createState() => _PrediccionEdadState();
 }
@@ -39,7 +41,7 @@ class _PrediccionEdadState extends State<PrediccionEdad> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Predicción de Edad'),
+        title: const Text('Predicción de Edad'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Center(
@@ -52,20 +54,20 @@ class _PrediccionEdadState extends State<PrediccionEdad> {
                 onChanged: (value) {
                   _nombre = value;
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Ingresa un nombre',
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _predecirEdad,
-                child: Text('Predecir Edad'),
+                child: const Text('Predecir Edad'),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               if (_edad != null) ...[
-                Text('Edad: $_edad', style: TextStyle(fontSize: 24)),
-                Text(_mensaje, style: TextStyle(fontSize: 20)),
+                Text('Edad: $_edad', style: const TextStyle(fontSize: 24)),
+                Text(_mensaje, style: const TextStyle(fontSize: 20)),
               ],
             ],
           ),

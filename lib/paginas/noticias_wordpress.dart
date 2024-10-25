@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 
 class NoticiasWordPress extends StatefulWidget {
+  const NoticiasWordPress({super.key});
+
   @override
   _NoticiasWordPressState createState() => _NoticiasWordPressState();
 }
@@ -32,19 +34,19 @@ class _NoticiasWordPressState extends State<NoticiasWordPress> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Noticias de WordPress'),
+        title: const Text('Noticias de WordPress'),
         backgroundColor: Colors.blueAccent,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: _noticias.isEmpty
-            ? Center(child: CircularProgressIndicator())
+            ? const Center(child: CircularProgressIndicator())
             : ListView.builder(
                 itemCount: _noticias.length,
                 itemBuilder: (context, index) {
                   final noticia = _noticias[index];
                   return Card(
-                    margin: EdgeInsets.symmetric(vertical: 8),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
                     elevation: 5,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -56,18 +58,18 @@ class _NoticiasWordPressState extends State<NoticiasWordPress> {
                         children: [
                           Text(
                             noticia['title'],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               color: Colors.black,
                             ),
                           ),
-                          SizedBox(height: 8),
+                          const SizedBox(height: 8),
                           Text(
                             noticia['description'] ?? 'No hay descripción',
                             style: TextStyle(fontSize: 16, color: Colors.grey[600]),
                           ),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
                           Align(
                             alignment: Alignment.centerRight,
                             child: TextButton(
@@ -77,12 +79,12 @@ class _NoticiasWordPressState extends State<NoticiasWordPress> {
                               style: TextButton.styleFrom(
                                 backgroundColor: Colors.blueAccent,
                                 foregroundColor: Colors.white,
-                                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                               ),
-                              child: Text('Leer más'),
+                              child: const Text('Leer más'),
                             ),
                           ),
                         ],

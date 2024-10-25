@@ -10,7 +10,7 @@ class ServicioEdad {
       final data = jsonDecode(response.body);
       return data['age'] as int?;
     } else {
-      return null; // En caso de error, retornamos null
+      return null; 
     }
   }
 }

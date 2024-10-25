@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class PrediccionGenero extends StatefulWidget {
+  const PrediccionGenero({super.key});
+
   @override
   _PrediccionGeneroState createState() => _PrediccionGeneroState();
 }
@@ -17,7 +19,8 @@ class _PrediccionGeneroState extends State<PrediccionGenero> {
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         setState(() {
-          _genero = data['gender'];
+          // Cambia "male" y "female" a "masculino" y "femenino"
+          _genero = data['gender'] == 'male' ? 'masculino' : 'femenino';
         });
       } else {
         throw Exception('Error al cargar datos');
@@ -27,44 +30,58 @@ class _PrediccionGeneroState extends State<PrediccionGenero> {
 
   @override
   Widget build(BuildContext context) {
+    // Cambia el color de fondo según el género
+    Color backgroundColor;
+    if (_genero == 'masculino') {
+      backgroundColor = Colors.blue; // Azul para masculino
+    } else if (_genero == 'femenino') {
+      backgroundColor = Colors.pink; // Rosa para femenino
+    } else {
+      backgroundColor = Colors.white; // Fondo blanco si no se ha predicho
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Predicción de Género'),
+        title: const Text('Predicción de Género'),
         backgroundColor: Colors.blueAccent,
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                onChanged: (value) {
-                  _nombre = value;
-                },
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Ingresa un nombre',
+      body: Container(
+        color: backgroundColor, // Color de fondo
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextField(
+                  onChanged: (value) {
+                    _nombre = value;
+                  },
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Ingresa un nombre',
+                  ),
                 ),
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _predecirGenero,
-                child: Text('Predecir Género'),
-              ),
-              SizedBox(height: 20),
-              if (_genero != null) 
-                Text(
-                  'Género: $_genero',
-                  style: TextStyle(fontSize: 24),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _predecirGenero,
+                  child: const Text('Predecir Género'),
                 ),
-            ],
+                const SizedBox(height: 20),
+                if (_genero != null) 
+                  Text(
+                    'Género: $_genero',
+                    style: const TextStyle(fontSize: 24),
+                  ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
 
 

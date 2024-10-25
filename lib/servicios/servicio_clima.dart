@@ -3,7 +3,7 @@ import 'dart:convert';
 
 class ServicioClima {
   static Future<String> obtenerClima() async {
-    final url = 'https://api.open-meteo.com/v1/forecast?latitude=18.5&longitude=-69.9&current_weather=true';
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=18.5&longitude=-69.9&current_weather=true';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
